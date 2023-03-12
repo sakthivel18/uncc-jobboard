@@ -25,14 +25,6 @@ class SecurityConfiguration(
         private val logoutHandler: LogoutHandler
 ) {
 
-//    @Bean
-//    fun webSecurityCustomizer(): WebSecurityCustomizer {
-//        return WebSecurityCustomizer { web: WebSecurity ->
-//            web.ignoring() // Spring Security should completely ignore URLs starting with /resources/
-//                    .requestMatchers("/api/v1/auth/**")
-//        }
-//    }
-
     @Bean
     @Throws(Exception::class)
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
