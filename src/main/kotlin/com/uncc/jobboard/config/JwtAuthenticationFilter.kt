@@ -14,7 +14,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 import java.io.IOException
-import java.util.Optional
+import java.util.*
 
 @Component
 class JwtAuthenticationFilter(
@@ -30,6 +30,14 @@ class JwtAuthenticationFilter(
             @NonNull response: HttpServletResponse,
             @NonNull filterChain: FilterChain
     ) {
+
+
+//        response.setHeader("Access-control-Allow-Origin", "*")
+//        response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE")
+//        response.setHeader("Access-Control-Allow-Headers", "x-requested-with, x-auth-token")
+//        response.setHeader("Access-Control-Max-Age", "3600")
+//        response.setHeader("Access-Control-Allow-Credentials", "true")
+
         val authHeader = request.getHeader("Authorization")
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {

@@ -6,9 +6,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationProvider
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.context.SecurityContextHolder
@@ -16,6 +14,11 @@ import org.springframework.security.web.SecurityFilterChain
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import org.springframework.security.web.authentication.logout.LogoutHandler
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler
+import org.springframework.web.cors.CorsConfiguration
+import org.springframework.web.cors.CorsConfigurationSource
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource
+import java.util.*
+
 
 @Configuration
 @EnableWebSecurity
@@ -24,6 +27,35 @@ class SecurityConfiguration(
         private val authenticationProvider: AuthenticationProvider,
         private val logoutHandler: LogoutHandler
 ) {
+
+//    @Bean
+//    fun corsConfigurationSource(): CorsConfigurationSource {
+//        val configuration = CorsConfiguration()
+//        configuration.allowedOrigins = listOf("http://localhost:3000")
+//        configuration.allowedMethods = listOf("GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS", "HEAD")
+//        configuration.allowCredentials = true
+//        configuration.allowedHeaders = listOf("Authorization", "Requestor-Type")
+//        configuration.exposedHeaders = listOf("X-Get-Header")
+//        configuration.maxAge = 3600L
+//        val source = UrlBasedCorsConfigurationSource()
+//        source.registerCorsConfiguration("/**", configuration)
+//        return source
+//    }
+
+
+//    @Bean
+//    fun corsConfigurationSource(): CorsConfigurationSource {
+//        val configuration = CorsConfiguration()
+//        configuration.allowedOrigins = listOf("http://localhost:3000")
+//        configuration.allowedMethods = listOf("GET", "POST", "PUT", "DELETE", "OPTIONS")
+//        configuration.allowCredentials = true
+//        configuration.allowedHeaders = listOf("Authorization", "Cache-Control", "Content-Type")
+//        configuration.exposedHeaders = listOf("X-Get-Header")
+//        configuration.maxAge = 3600L
+//        val source = UrlBasedCorsConfigurationSource()
+//        source.registerCorsConfiguration("/**", configuration)
+//        return source
+//    }
 
     @Bean
     @Throws(Exception::class)
